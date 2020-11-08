@@ -18,6 +18,7 @@ public class InsertUser : MonoBehaviour
     public TMP_InputField id_user;
 
     
+
     public void ChangePuesto(int i)
     {
         puesto = i;        
@@ -34,24 +35,26 @@ public class InsertUser : MonoBehaviour
         Debug.Log(id);
         WWWForm form = new WWWForm();
         form.AddField("id_empleado", id); //No repetir porque debe ser único
-        form.AddField("id_puesto", 1); //Número de 1 a 3
-        form.AddField("nombre", nombre.text); //Viene del text input
-        form.AddField("usuario", usuario.text);
-        form.AddField("password", password.text); //Viene del text input
+        form.AddField("id_puesto", puesto); //Número de 1 a 3
+        form.AddField("nombre", nombre.text.Trim()); //Viene del text input
+        form.AddField("usuario", usuario.text.Trim());
+        form.AddField("password", password.text.Trim()); //Viene del text input
         WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DS/insertarusuario.php", form);
 
         yield return www;
 
-        ShowUsers s = this.gameObject.GetComponent<ShowUsers>();
-        s.Empleados();
+        
         if (www.text[0] == '0')
         {
             Debug.Log("User Created susccesfully.");
             InstantiateSuccess("Operación exitosa", "Usuario creado exitosamente");
-            
+            ShowUsers s = this.gameObject.GetComponent<ShowUsers>();
+            s.Empleados();
         }
         else
         {
+            InstantiateSuccess("Error", "No se creo el usuario");
+
             Debug.Log("User login failed. Error #" + www.text);
 
         }

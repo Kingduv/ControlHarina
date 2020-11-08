@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Michsky.UI.ModernUIPack;
 
 public class DeleteUser : MonoBehaviour
 {
     public TMP_InputField id_user;
-   
+    public GameObject success;
+    public GameObject dady;
     public void EliminarUsuario()
     {
         StartCoroutine(Eliminar());
@@ -27,13 +29,23 @@ public class DeleteUser : MonoBehaviour
         s.Empleados();
         if (www.text[0] == '0')
         {
-            Debug.Log("User Created susccesfully.");
+            InstantiateSuccess("Operación exitosa", "Usuario eliminado exitosamente");
 
         }
         else
         {
-            Debug.Log("User login failed. Error #" + www.text);
+            InstantiateSuccess("Operación fallida", "Error al eliminar usuario");
         }
+
+    }
+    public void InstantiateSuccess(string title, string message)
+    {
+
+        GameObject exito = Instantiate(success.gameObject);
+        exito.GetComponent<ModalWindowManager>().titleText = title;
+        exito.GetComponent<ModalWindowManager>().descriptionText = message;
+        exito.transform.SetParent(GameObject.Find("Canvas").transform, false);
+        exito.transform.SetParent(dady.transform);
 
     }
 }

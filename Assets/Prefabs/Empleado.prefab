@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 3381444044885932042}
   m_Layer: 5
   m_Name: Empleado
-  m_TagString: Untagged
+  m_TagString: empleado
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,8 +395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -21.3, y: 0}
+  m_SizeDelta: {x: 313.70776, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6246701235761699660
 CanvasRenderer:
@@ -529,8 +529,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -39.1, y: 0}
+  m_SizeDelta: {x: 415.57092, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1693031732611743798
 CanvasRenderer:
@@ -735,8 +735,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -18.017, y: 0}
+  m_SizeDelta: {x: 401.85803, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &366632493945422377
 CanvasRenderer:

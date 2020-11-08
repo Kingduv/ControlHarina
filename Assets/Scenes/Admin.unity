@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625644585378558, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: m_Name
-      value: PuestoDrop (1)
+      value: PuestoDrop
       objectReference: {fileID: 0}
     - target: {fileID: 114256699727263684, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: m_Color.r
@@ -349,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[3].OnItemSelection.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[2].OnItemSelection.m_PersistentCalls.m_Calls.Array.size
@@ -454,10 +454,10 @@ PrefabInstance:
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[2].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 436155597}
+      objectReference: {fileID: 436155598}
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[2].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InsertUser, Assembly-CSharp
+      value: ModificarUsuario, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[2].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -478,10 +478,10 @@ PrefabInstance:
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[1].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 436155597}
+      objectReference: {fileID: 436155598}
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[1].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InsertUser, Assembly-CSharp
+      value: ModificarUsuario, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[1].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -502,10 +502,10 @@ PrefabInstance:
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[0].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 436155597}
+      objectReference: {fileID: 436155598}
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[0].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: InsertUser, Assembly-CSharp
+      value: ModificarUsuario, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[0].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -526,6 +526,18 @@ PrefabInstance:
     - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: dropdownItems.Array.data[2].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
+      propertyPath: dropdownItems.Array.data[2].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: InsertUser, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
+      propertyPath: dropdownItems.Array.data[2].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114726610096788064, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
+      propertyPath: dropdownItems.Array.data[2].OnItemSelection.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114747121233379614, guid: 1190c8fdb950aad4a8076926f4a8b827, type: 3}
       propertyPath: m_Color.r
@@ -1568,6 +1580,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
       propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontSizeMax
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
@@ -1588,6 +1608,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
       propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontSizeMax
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224862068371750312, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
@@ -2064,6 +2100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e77766579907a4d9e368f3e6aca692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  success: {fileID: 4593883060711295366, guid: 5397a47256787814caa60142aa664e52, type: 3}
+  dady: {fileID: 1202722449}
   usuario: {fileID: 1330213367}
   nombre: {fileID: 1877941221}
   password: {fileID: 512626679}
@@ -2081,6 +2119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id_user: {fileID: 709582871}
+  success: {fileID: 0}
+  dady: {fileID: 0}
 --- !u!114 &436155600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,6 +2387,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Usuarios
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 436155601}
+        m_TargetAssemblyTypeName: ShowUsers, Assembly-CSharp
+        m_MethodName: Empleados
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &496189578
@@ -2905,6 +2957,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
       propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontSizeMax
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
@@ -2925,6 +2985,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
       propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontSizeMax
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224862068371750312, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
@@ -5184,9 +5260,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327055523}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!222 &1327055527
 CanvasRenderer:
@@ -8612,6 +8688,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
       propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontSizeMax
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
@@ -8632,6 +8716,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
       propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontSizeMax
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224862068371750312, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
@@ -9477,6 +9577,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
       propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114404788642818498, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontSizeMax
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
@@ -9497,6 +9605,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
       propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439918842871776, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
+      propertyPath: m_fontSizeMax
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224862068371750312, guid: f6d82199af7ca3743b7a21cc4398ba50, type: 3}
