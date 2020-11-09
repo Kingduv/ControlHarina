@@ -7,5 +7,19 @@ using UnityEngine;
 public class Equipo 
 {
     //tipos :  Farinografo -1, Alveografo-2 
-    int tipo;
+    
+    public int id;
+    public string marca;
+    public string serie;
+    public string proveedor_equipo;
+    public string fechas_adquisicion;
+    public string garantia;
+    public string descripcion_larga;
+    public string descripcion_corta;
+    public string ubicacion;
+    public string mantenimiento;
+    public string id_tipo;
+    public string responsable;
+   
+
 }

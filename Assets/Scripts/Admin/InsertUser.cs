@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using System.Security.Policy;
 using Michsky.UI.ModernUIPack;
+using System.Text.RegularExpressions;
 
 public class InsertUser : MonoBehaviour
 {
@@ -36,9 +37,9 @@ public class InsertUser : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("id_empleado", id); //No repetir porque debe ser único
         form.AddField("id_puesto", puesto); //Número de 1 a 3
-        form.AddField("nombre", nombre.text.Trim()); //Viene del text input
-        form.AddField("usuario", usuario.text.Trim());
-        form.AddField("password", password.text.Trim()); //Viene del text input
+        form.AddField("nombre", nombre.text.Replace("\u200b", "")); //Viene del text input
+        form.AddField("usuario", usuario.text.Replace("\u200b", ""));
+        form.AddField("password", @password.text.Replace("\u200b", "")); //Viene del text input
         WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DS/insertarusuario.php", form);
 
         yield return www;

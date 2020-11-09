@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: 778f67812309850419bb6a186fbf02ad
+  - enabled: 1
     path: Assets/Scenes/Almacen.unity
     guid: 74234a7fdb6d17c44bc44ef8fd4547f5
   - enabled: 1
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Certificados.unity
     guid: 2207258679b8d824289656bf789bbf86
-  - enabled: 1
-    path: Assets/Scenes/Login.unity
-    guid: 778f67812309850419bb6a186fbf02ad
   - enabled: 0
     path: Assets/Scenes/testDiego.unity
     guid: 2be0c1e271dedeb45939e02513dedec2
