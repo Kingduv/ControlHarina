@@ -118,23 +118,23 @@ public class CRUDClientes : MonoBehaviour
         if (personalizado == 1)
         {
             int.TryParse(ab_lim_sup.text.ToString(), out abs);
-            int.TryParse(ab_lim_sup.text.ToString(), out abi);
+            int.TryParse(ab_lim_inf.text.ToString(), out abi);
             int.TryParse(dm_lim_sup.text.ToString(), out dms);
-            int.TryParse(dm_lim_sup.text.ToString(), out dmi);
+            int.TryParse(dm_lim_inf.text.ToString(), out dmi);
             int.TryParse(e_lim_sup.text.ToString(), out es);
-            int.TryParse(e_lim_sup.text.ToString(), out ei);
+            int.TryParse(e_lim_inf.text.ToString(), out ei);
             int.TryParse(gr_lim_sup.text.ToString(), out grs);
-            int.TryParse(gr_lim_sup.text.ToString(), out gri);
+            int.TryParse(gr_lim_inf.text.ToString(), out gri);
             int.TryParse(fqn_lim_sup.text.ToString(), out fqns);
-            int.TryParse(fqn_lim_sup.text.ToString(), out fqni);
+            int.TryParse(fqn_lim_inf.text.ToString(), out fqni);
             int.TryParse(t_lim_sup.text.ToString(), out ts);
-            int.TryParse(t_lim_sup.text.ToString(), out ti);
+            int.TryParse(t_lim_inf.text.ToString(), out ti);
             int.TryParse(ex_lim_sup.text.ToString(), out exs);
-            int.TryParse(ex_lim_sup.text.ToString(), out exi);
+            int.TryParse(ex_lim_inf.text.ToString(), out exi);
             int.TryParse(fh_lim_sup.text.ToString(), out fhs);
-            int.TryParse(fh_lim_sup.text.ToString(), out fhi);
+            int.TryParse(fh_lim_inf.text.ToString(), out fhi);
             int.TryParse(cc_lim_sup.text.ToString(), out ccs);
-            int.TryParse(cc_lim_sup.text.ToString(), out cci);
+            int.TryParse(cc_lim_inf.text.ToString(), out cci);
 
         }
         WWWForm form = new WWWForm();
@@ -228,7 +228,7 @@ public class CRUDClientes : MonoBehaviour
             foreach (Cliente c in cliente)
             {
                 GameObject ego = Instantiate(clienteGO, equipodady.transform);
-                Debug.Log(c.habilitado);
+                //Debug.Log(c.habilitado);
                 ////id , marca, serie, proveedor, fecha adquicisión garantía, descripción larga, descripción corta, ubicación, mantenimiento, tipoo de equipo, responsable 
                 ego.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = c.id_cliente.ToString();
                 ego.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = c.nombre;

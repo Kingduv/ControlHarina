@@ -1,0 +1,3 @@
+v1.1 - added support for Unity 2018.1
+v1.2 - added library necessary to render text + demo scene with Hello World script
+v1.3 - added support for lower version of Unity up to 5.0

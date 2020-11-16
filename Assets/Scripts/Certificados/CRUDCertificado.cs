@@ -12,6 +12,8 @@ public class CRUDCertificado : MonoBehaviour
     [Header("ExitoFracaso")]
     public GameObject success;
     public GameObject dady;
+    public GameObject certificadoGO;
+    public GameObject dadyCertificado;
 
     [Header("Inputfields")]
     public TMP_InputField lote;
@@ -27,10 +29,40 @@ public class CRUDCertificado : MonoBehaviour
     {
         StartCoroutine(Insertar());
     }
+    public void MostrarCertificados()
+    {
+        StartCoroutine(Mostrar());
+    }
     public void ConsultarCertificado()
     {
         StartCoroutine(Consultar());
     }
+    IEnumerator Mostrar()
+    {
+        int id_p, id_c, n_a;
+        int.TryParse(id_pedido.text.ToString(), out id_p);
+        int.TryParse(id_cliente.text.ToString(), out id_c);
+        int.TryParse(num_analisis.text.ToString(), out n_a);
+
+        WWWForm form = new WWWForm();
+        WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DSF/cnpcertificado.php", form);
+        yield return www;
+            if (string.IsNullOrEmpty(www.error))
+            {
+                List<Certificado> certificados = JsonConvert.DeserializeObject<List<Certificado>>(www.text);
+                foreach(Certificado c in certificados)
+                {
+                GameObject ego = Instantiate(certificadoGO, dadyCertificado.transform);
+           
+                ego.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = c.lote;
+                ego.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = c.numero_analisis.ToString();
+                ego.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = c.id_certificado.ToString();
+                ego.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = c.id_pedido.ToString();
+                ego.transform.GetChild(4).GetComponentInChildren<TextMeshProUGUI>().text = c.id_cliente.ToString();
+
+            }
+        }
+        }
     IEnumerator Consultar()
     {
         int id_p, id_c, n_a;
@@ -40,24 +72,24 @@ public class CRUDCertificado : MonoBehaviour
 
         WWWForm form = new WWWForm();
 
-        //form.AddField("lote", lote.text.ToString());
-        //form.AddField("id_pedido", id_p);
-        //form.AddField("id_cliente", id_c);
-        //form.AddField("numero_analisis", n_a);
+        form.AddField("lote", lote.text.ToString());
+        form.AddField("id_pedido", id_p);
+        form.AddField("id_cliente", id_c);
+        form.AddField("numero_analisis", n_a);
 
-        form.AddField("lote", "nm");
-        form.AddField("id_pedido", 10);
-        form.AddField("id_cliente", 101);
-        form.AddField("numero_analisis", 1);
+        //form.AddField("lote", "nm");
+        //form.AddField("id_pedido", 10);
+        //form.AddField("id_cliente", 101);
+        //form.AddField("numero_analisis", 1);
 
 
         WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DSF/cnpcertificado.php", form);
         yield return www;
         Debug.Log(www.text);
-        string lt = "nm";
-        id_p = 10;
-        id_c = 101;
-        n_a = 1;
+        string lt = lote.text.ToString();
+        //id_p = 10;
+        //id_c = 101;
+        //n_a = 1;
         if (string.IsNullOrEmpty(www.error))
         {
             List<Certificado> certificados = JsonConvert.DeserializeObject<List<Certificado>>(www.text);
@@ -68,7 +100,7 @@ public class CRUDCertificado : MonoBehaviour
                 c => c.id_cliente==id_c && c.id_pedido==id_p && c.lote.Equals(lt)
                 ).FirstOrDefault();
 
-            Debug.Log(certCompleto.c.id_certificado+" lote: "+certCompleto.c.lote);
+            //Debug.Log(certCompleto.c.id_certificado+" lote: "+certCompleto.c.lote);
 
             form.AddField("lote", certCompleto.c.lote);
             WWW www2 = new WWW("https://lab.anahuac.mx/~a00289882/DS/consultaanalisis.php", form);
@@ -112,7 +144,7 @@ public class CRUDCertificado : MonoBehaviour
             {
                 List<Pedido> pedidos = JsonConvert.DeserializeObject<List<Pedido>>(www.text);
                 certCompleto.p = pedidos.Where(p => p.id_pedido == id_p).FirstOrDefault();
-                Debug.Log(certCompleto.p.id_pedido);
+                //Debug.Log(certCompleto.p.id_pedido);
             }
 
             certCompleto.com_absorcion_agua = 
@@ -152,6 +184,11 @@ public class CRUDCertificado : MonoBehaviour
             certCompleto.com_indice_elasticidad =
                IsInRange(certCompleto.cl.ie_lim_sup, certCompleto.cl.ie_lim_inf, certCompleto.a.indice_elasticidad) == 0 ? "En rango" :
                IsInRange(certCompleto.cl.ie_lim_sup, certCompleto.cl.ie_lim_inf, certCompleto.a.indice_elasticidad) == 1 ? "Arriba del rango" : "Debajo del rango";
+
+            Debug.Log(certCompleto.com_absorcion_agua + " " + certCompleto.cl.ab_lim_sup +" "+certCompleto.cl.ab_lim_inf + " "+ certCompleto.a.absorcion_agua) ;
+
+            Imprimir pdf = new Imprimir();
+            pdf.PrintPDF(certCompleto);
         }
 
     }
@@ -170,10 +207,10 @@ public class CRUDCertificado : MonoBehaviour
 
         WWWForm form = new WWWForm();
 
-        form.AddField("lote", lote.text.ToString());
-        form.AddField("id_pedido", id_p);
-        form.AddField("id_cliente", id_c);
-        form.AddField("numero_analisis", n_a);
+        //form.AddField("lote", lote.text.ToString());
+        //form.AddField("id_pedido", id_p);
+        //form.AddField("id_cliente", id_c);
+        //form.AddField("numero_analisis", n_a);
 
         //form.AddField("lote", "nm");
         //form.AddField("id_pedido",10);

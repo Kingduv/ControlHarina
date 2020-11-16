@@ -100,8 +100,8 @@ public class CRUDPedido : MonoBehaviour
                 GameObject ego = Instantiate(pedidoGO, pedidodady.transform);
                 ////id , marca, serie, proveedor, fecha adquicisión garantía, descripción larga, descripción corta, ubicación, mantenimiento, tipoo de equipo, responsable 
                 ego.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().text = p.id_pedido.ToString();
-                ego.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = p.lote;
-                ego.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = p.id_cliente.ToString();
+                ego.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = p.id_cliente.ToString();
+                ego.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = p.lote;
                 ego.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = p.cant_solicitada.ToString();
                 ego.transform.GetChild(4).GetComponentInChildren<TextMeshProUGUI>().text = p.cant_tot_entrega.ToString();
                 ego.transform.GetChild(5).GetComponentInChildren<TextMeshProUGUI>().text = p.fecha_envio;
