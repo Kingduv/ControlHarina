@@ -7,6 +7,11 @@ TagManager:
   - success
   - dady
   - empleado
+  - equipo
+  - cliente
+  - analisis
+  - lote
+  - pedido
   layers:
   - Default
   - TransparentFX

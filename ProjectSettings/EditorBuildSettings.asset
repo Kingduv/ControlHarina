@@ -18,9 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Admin.unity
     guid: 91aaaaabd4e6432419237c8d6342eb2a
   - enabled: 1
-    path: Assets/Scenes/Certificados.unity
-    guid: 2207258679b8d824289656bf789bbf86
+    path: Assets/Scenes/Laboratorista.unity
+    guid: b7af29468d7fc7047b787aed78241d1b
   - enabled: 0
-    path: Assets/Scenes/testDiego.unity
-    guid: 2be0c1e271dedeb45939e02513dedec2
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

@@ -8,11 +8,12 @@ public class Equipo
 {
     //tipos :  Farinografo -1, Alveografo-2 
     
-    public int id;
+    public int id_equipo;
     public string marca;
+    public string modelo;
     public string serie;
     public string proveedor_equipo;
-    public string fechas_adquisicion;
+    public string fecha_adquisicion;
     public string garantia;
     public string descripcion_larga;
     public string descripcion_corta;

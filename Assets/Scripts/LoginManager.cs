@@ -30,22 +30,22 @@ public class LoginManager : MonoBehaviour
         yield return www;
 
         Debug.Log(www.text);
-        if (www.text[0] == '1')
+        if (www.text[0] == '1')//ADMIN
         {
 
             SceneManager.LoadScene(2);            
             
         }
-        if (www.text[0] == '2')
+        if (www.text[0] == '2')//LABORATORISTA
         {
-
-            InstantiateSuccess("Bienvenido", "Es un gusto tenerte de vuelta");
+            SceneManager.LoadScene(3);
 
         }
-        if (www.text[0] == '3')
+        if (www.text[0] == '3')//ALMACEN
         {
 
-            InstantiateSuccess("Bienvenido", "Es un gusto tenerte de vuelta");
+            SceneManager.LoadScene(1);
+
 
         }
         else if(www.text[0] == '1' && www.text[1]=='1')
