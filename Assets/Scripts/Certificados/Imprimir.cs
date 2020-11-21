@@ -24,7 +24,7 @@ public class Imprimir : MonoBehaviour
         int br = 25;
         string s = "       ";
         string s2 = "    ";
-
+        #region Datos Generales
         nombre = c.cl.nombre;
         PdfDocument document = new PdfDocument();
         PdfPage page = document.AddPage();
@@ -42,9 +42,9 @@ public class Imprimir : MonoBehaviour
         gfx.DrawString(nombre, font, XBrushes.Coral,
        new XRect(0, 75, page.Width, page.Height),
        XStringFormat.TopCenter);
-
+        #endregion
         yR += 50;
-
+        #region CLIENTE
         //***************CLIENTE***********
         XFont cliente = new XFont("Calibri", 16, XFontStyle.Bold);
         gfx.DrawString("Datos Cliente:", cliente, XBrushes.Blue,
@@ -63,9 +63,9 @@ public class Imprimir : MonoBehaviour
         XStringFormat.TopLeft);
         yR += br;
 
-
-        //***************PEDIDO***********
-
+        #endregion
+        
+        #region PEDIDO
         XFont pedido = new XFont("Calibri", 16, XFontStyle.Bold);
         gfx.DrawString("Datos Pedido: ", pedido, XBrushes.Blue,
         new XRect(50, yR, page.Width, page.Height),
@@ -77,12 +77,17 @@ public class Imprimir : MonoBehaviour
         XStringFormat.TopLeft);
         yR += 20;
         XFont datosP2 = new XFont("Verdana", 10, XFontStyle.Regular);
-        gfx.DrawString("Fecha de Caducidad: " + c.p.fecha_caducidad + "       Fecha de Envio: " + c.p.fecha_envio   , datosP2, XBrushes.Black,
+        gfx.DrawString("Fecha de Caducidad: " + c.p.fecha_caducidad + "       Fecha de Envio: " + c.p.fecha_envio, datosP2, XBrushes.Black,
+        new XRect(50, yR, page.Width, page.Height),
+        XStringFormat.TopLeft);
+        yR += 20;
+        XFont datosP6 = new XFont("Verdana", 10, XFontStyle.Regular);
+        gfx.DrawString("Fecha de Producción: " + c.p.fecha_produccion , datosP2, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
         XFont datosP3 = new XFont("Verdana", 10, XFontStyle.Regular);
-        gfx.DrawString("Número de Compra: " + c.p.num_compra+ "       Número de Factura: " + c.p.num_factura, datosP3, XBrushes.Black,
+        gfx.DrawString("Número de Compra: " + c.p.num_compra+ "       Número de Factura: " + c.p.num_factura.ToString(), datosP3, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
@@ -91,8 +96,8 @@ public class Imprimir : MonoBehaviour
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += br;
-
-
+        #endregion
+        #region ANALISIS
         //***************ANALISIS***********
         XFont analisis = new XFont("Calibri", 16, XFontStyle.Bold);
         gfx.DrawString("Datos Análisis:", cliente, XBrushes.Blue,
@@ -106,8 +111,7 @@ public class Imprimir : MonoBehaviour
         XStringFormat.TopLeft);
         yR += 20;
         List<String> pC = new List<string>();
-        if (c.cl.personalizado==1)
-        {
+        
             pC.Add("Límite Inferior:" + c.cl.ab_lim_inf + s2 + "Límite Superior:" + c.cl.ab_lim_sup + s2 + "Comentario:" + c.com_absorcion_agua);
             pC.Add("Límite Inferior:" + c.cl.dm_lim_inf + s2 + "Límite Superior:" + c.cl.dm_lim_sup + s2 + "Comentario:" + c.com_desarrollo_masa);
             pC.Add("Límite Inferior:" + c.cl.e_lim_inf + s2 + "Límite Superior:" + c.cl.e_lim_sup + s2 + "Comentario:" + c.com_estabilidad);
@@ -118,72 +122,72 @@ public class Imprimir : MonoBehaviour
             pC.Add("Límite Inferior:" + c.cl.fh_lim_inf + s2 + "Límite Superior:" + c.cl.fh_lim_sup + s2 + "Comentario:" + c.com_fuerza_harina);
             pC.Add("Límite Inferior:" + c.cl.cc_lim_inf + s2 + "Límite Superior:" + c.cl.cc_lim_sup + s2 + "Comentario:" + c.com_configuracion);
             pC.Add("Límite Inferior:" + c.cl.ie_lim_inf + s2 + "Límite Superior:" + c.cl.ie_lim_sup + s2 + "Comentario:" + c.com_indice_elasticidad);
-        }
-        string d = c.cl.personalizado == 1 ?pC[0]:"";
+        
+        string d = pC[0];
         XFont datosA1 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Absorción agua: "+c.a.absorcion_agua+s+d, datosA1, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
-        d = c.cl.personalizado == 1 ? pC[1] : "";
+        d =pC[1];
         XFont datosA2 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Desarrollo Masa:"+c.a.desarrollo_masa + s + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
-        d = c.cl.personalizado == 1 ? pC[2] : "";
+        d = pC[2];
         XFont datosA3 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Estabilidad:" + c.a.estabilidad + s2 + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
-        
-        d = c.cl.personalizado == 1 ? pC[2] : "";
+
+        d = pC[3];
         XFont datosA4 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Grado de Reblandecimiento:" + c.a.grado_reblandecimineto + s2 + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
-        d = c.cl.personalizado == 1 ? pC[3] : "";
+        d = pC[4];
         XFont datosA5 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("FQN:" + c.a.fqn + s2 + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
-        d = c.cl.personalizado == 1 ? pC[4] : "";
+        d = pC[5];
         XFont datosA6 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Tenacidad:" + c.a.tenacidad + s2 + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
-        d = c.cl.personalizado == 1 ? pC[5] : "";
+        d = pC[6];
         XFont datosA7 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Extensabilidad:" + c.a.extensibilidad+ s2 + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
 
-        d = c.cl.personalizado == 1 ? pC[6] : "";
+        d = pC[7];
         XFont datosA8 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Fuerza Harina:" + c.a.fuerza_harina + s2 + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
 
-        d = c.cl.personalizado == 1 ? pC[7] : "";
+        d = pC[8];
         XFont datosA9 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Configuración de Curva:" + c.a.configuracion + s2 + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
 
-        d = c.cl.personalizado == 1 ? pC[1] : "";
+        d = pC[9];
         XFont datosA10 = new XFont("Verdana", 10, XFontStyle.Regular);
         gfx.DrawString("Indice de Elasticidad:" + c.a.indice_elasticidad + s2 + d, datosA, XBrushes.Black,
         new XRect(50, yR, page.Width, page.Height),
         XStringFormat.TopLeft);
         yR += 20;
-
+        #endregion
         string filename = "Certificado.pdf";
         document.Save(filename);
         Process.Start(filename);

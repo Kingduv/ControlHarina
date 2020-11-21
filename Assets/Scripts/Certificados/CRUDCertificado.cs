@@ -140,12 +140,14 @@ public class CRUDCertificado : MonoBehaviour
                 yield return null;
             }
 
-            if (string.IsNullOrEmpty(www3.error))//pedido
+            if (string.IsNullOrEmpty(www4.error))//pedido
             {
-                List<Pedido> pedidos = JsonConvert.DeserializeObject<List<Pedido>>(www.text);
-                certCompleto.p = pedidos.Where(p => p.id_pedido == id_p).FirstOrDefault();
-                //Debug.Log(certCompleto.p.id_pedido);
+                List<Pedido> pedidos = JsonConvert.DeserializeObject<List<Pedido>>(www4.text);
+                certCompleto.p = pedidos.Where(p => id_p == p.id_pedido).FirstOrDefault();
+                Debug.Log(certCompleto.p.id_pedido+"  "+certCompleto.p.fecha_caducidad);
             }
+
+            #region COMENTARIOS
 
             certCompleto.com_absorcion_agua = 
                 IsInRange(certCompleto.cl.ab_lim_sup,certCompleto.cl.ab_lim_inf,certCompleto.a.absorcion_agua) == 0 ? "En rango" :
@@ -184,8 +186,8 @@ public class CRUDCertificado : MonoBehaviour
             certCompleto.com_indice_elasticidad =
                IsInRange(certCompleto.cl.ie_lim_sup, certCompleto.cl.ie_lim_inf, certCompleto.a.indice_elasticidad) == 0 ? "En rango" :
                IsInRange(certCompleto.cl.ie_lim_sup, certCompleto.cl.ie_lim_inf, certCompleto.a.indice_elasticidad) == 1 ? "Arriba del rango" : "Debajo del rango";
-
-            Debug.Log(certCompleto.com_absorcion_agua + " " + certCompleto.cl.ab_lim_sup +" "+certCompleto.cl.ab_lim_inf + " "+ certCompleto.a.absorcion_agua) ;
+            #endregion
+            Debug.Log(certCompleto.com_absorcion_agua+"  ") ;
 
             Imprimir pdf = new Imprimir();
             pdf.PrintPDF(certCompleto);
@@ -206,17 +208,20 @@ public class CRUDCertificado : MonoBehaviour
         int.TryParse(num_analisis.text.ToString(), out n_a);
 
         WWWForm form = new WWWForm();
-
-        //form.AddField("lote", lote.text.ToString());
-        //form.AddField("id_pedido", id_p);
-        //form.AddField("id_cliente", id_c);
-        //form.AddField("numero_analisis", n_a);
+        form.AddField("id_cliente", id_c);
+        form.AddField("lote", lote.text.ToString());
+        form.AddField("numero_analisis", n_a);
+        form.AddField("id_pedido", id_p);
 
         //form.AddField("lote", "nm");
         //form.AddField("id_pedido",10);
         //form.AddField("id_cliente",101);
         //form.AddField("numero_analisis",1);
 
+        //form.AddField("id_cliente", 100);
+        //form.AddField("lote", "nm");
+        //form.AddField("numero_analisis", 1);
+        //form.AddField("id_pedido", 777);
 
         WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DS/insertarcertificado.php", form);
         yield return www;
@@ -233,6 +238,7 @@ public class CRUDCertificado : MonoBehaviour
 
         }
     }
+     
     public void InstantiateSuccess(string title, string message)
     {
 

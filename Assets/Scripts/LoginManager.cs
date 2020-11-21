@@ -30,7 +30,7 @@ public class LoginManager : MonoBehaviour
         yield return www;
 
         Debug.Log(www.text);
-        if (www.text[0] == '1')//ADMIN
+        if (www.text[0] == '1' && www.text[1] != '1')//ADMIN
         {
 
             SceneManager.LoadScene(2);            

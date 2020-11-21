@@ -12,7 +12,7 @@ public class CRUDEquipos : MonoBehaviour
     public GameObject success;
     public GameObject dady;
     public GameObject equipodady;
-
+    public int tipo=1;
     public TMP_InputField id_delete;
     public TMP_InputField i;
     public TMP_InputField m;
@@ -25,7 +25,6 @@ public class CRUDEquipos : MonoBehaviour
     public TMP_InputField dc;
     public TMP_InputField ub;
     public TMP_InputField ma;
-    public TMP_InputField t;
     public TMP_InputField res;
 
     //**********LISTO*********
@@ -35,7 +34,10 @@ public class CRUDEquipos : MonoBehaviour
 
 
 
-
+    public void CambiarTipo()
+    {
+        tipo = tipo == 1 ? 2 : 1;
+    }
     public void MostrarEquipo()
     {
         StartCoroutine(MostrarEquipos());
@@ -95,7 +97,7 @@ public class CRUDEquipos : MonoBehaviour
         form.AddField("descripcion_corta", dc.text.Replace("\u200b", "")); //Viene del text input
         form.AddField("ubicacion", ub.text.Replace("\u200b", "")); //Viene del text input
         form.AddField("mantenimiento", ma.text.Replace("\u200b", "")); //Viene del text input
-        form.AddField("id_tipo", t.text.Replace("\u200b", "")); //Viene del text input
+        form.AddField("id_tipo",tipo ); //Viene del text input
         form.AddField("responsable", res.text.Replace("\u200b", "")); //Viene del text inputform.AddField("id_equipo", id); //No repetir porque debe ser único
         //form.AddField("id_equipo", 1552); //No repetir porque debe ser único
         //form.AddField("marca", "AAAA"); //Número de 1 a 3
@@ -173,11 +175,7 @@ public class CRUDEquipos : MonoBehaviour
                 ego.transform.GetChild(11).GetComponentInChildren<TextMeshProUGUI>().text = tipo;
                 ego.transform.GetChild(12).GetComponentInChildren<TextMeshProUGUI>().text = e.responsable;
 
-
             }
-
-       
-
         }
         else Debug.LogWarning(www.error);
         yield return new WaitForSeconds(.3f);
@@ -188,8 +186,7 @@ public class CRUDEquipos : MonoBehaviour
         int.TryParse(i.text.ToString(), out id);
         int idRes;
         int.TryParse(res.text.ToString(), out idRes);
-        int idTip;
-        int.TryParse(t.text.ToString(), out idTip);
+        
 
 //        Debug.Log(idRes + "," + id + "," + idTip + ",");
         WWWForm form = new WWWForm();
@@ -199,13 +196,13 @@ public class CRUDEquipos : MonoBehaviour
         form.AddField("modelo", mo.text.Replace("\u200b", "")); //Viene del text input
         form.AddField("serie", s.text.Replace("\u200b", ""));
         form.AddField("proveedor_equipo", p.text.Replace("\u200b", "")); //Viene del text input
-        form.AddField("fecha_adquisicion", DateTime.Today.ToString()); //Viene del text input
+        form.AddField("fecha_adquisicion", date.text.Replace("\u200b", "")); //Viene del text input
         form.AddField("garantia", ga.text.Replace("\u200b", "")); //Viene del text input
         form.AddField("descripcion_larga", dl.text.Replace("\u200b", "")); //Viene del text input
         form.AddField("descripcion_corta", dc.text.Replace("\u200b", "")); //Viene del text input
         form.AddField("ubicacion", ub.text.Replace("\u200b", "")); //Viene del text input
         form.AddField("mantenimiento", ma.text.Replace("\u200b", "")); //Viene del text input
-        form.AddField("id_tipo", idTip); //Viene del text input
+        form.AddField("id_tipo", tipo); //Viene del text input
         form.AddField("responsable", idRes); //Viene del text input
 
         //form.AddField("id_equipo", 152); //No repetir porque debe ser único

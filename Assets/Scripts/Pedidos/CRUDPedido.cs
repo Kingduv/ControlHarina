@@ -23,6 +23,7 @@ public class CRUDPedido : MonoBehaviour
     public TMP_InputField fecha_caducidad;
     public TMP_InputField num_factura;
     public TMP_InputField num_compra;
+    public TMP_InputField fecha_produccion;
 
 
 
@@ -50,11 +51,12 @@ public class CRUDPedido : MonoBehaviour
 
         form.AddField("id_pedido", datos[0]);
         form.AddField("id_cliente", datos[1]);
-        form.AddField("lote", "nm");
+        form.AddField("lote", lote.text.ToString());
         form.AddField("cant_solicitada", datos[2]);
         form.AddField("cant_tot_entrega", datos[3]);
-        form.AddField("fecha_envio", "11/13/2020");
-        form.AddField("fecha_caducidad", "11/13/2020");
+        form.AddField("fecha_envio", fecha_envio.text.ToString());
+        form.AddField("fecha_caducidad", fecha_caducidad.text.ToString());
+        form.AddField("fecha_produccion", fecha_produccion.text.ToString());
         form.AddField("num_factura", datos[4]);
         form.AddField("num_compra", datos[5]);
         WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DSF/insertar_pedido.php", form);
@@ -108,6 +110,8 @@ public class CRUDPedido : MonoBehaviour
                 ego.transform.GetChild(6).GetComponentInChildren<TextMeshProUGUI>().text = p.fecha_caducidad;
                 ego.transform.GetChild(7).GetComponentInChildren<TextMeshProUGUI>().text = p.num_factura.ToString();
                 ego.transform.GetChild(8).GetComponentInChildren<TextMeshProUGUI>().text = p.num_compra.ToString();
+                ego.transform.GetChild(9).GetComponentInChildren<TextMeshProUGUI>().text = p.fecha_produccion;
+
 
             }
 

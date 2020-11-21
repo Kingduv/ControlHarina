@@ -31,9 +31,9 @@ public class ModificarUsuario : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("id_empleado", id); //No repetir porque debe ser único
         form.AddField("id_puesto", puesto); //Número de 1 a 3
-        form.AddField("nombre", nombre.text); //Viene del text input
-        form.AddField("usuario", usuario.text);
-        form.AddField("password", password.text); //Viene del text input
+        form.AddField("nombre", nombre.text.Replace("\u200b", "")); //Viene del text input
+        form.AddField("usuario", usuario.text.Replace("\u200b", ""));
+        form.AddField("password", password.text.Replace("\u200b", "")); //Viene del text input
         WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DS/modificarusuario.php", form);
 
         yield return www;

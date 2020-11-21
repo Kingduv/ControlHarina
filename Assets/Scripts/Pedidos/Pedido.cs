@@ -11,6 +11,7 @@ public class Pedido
     public int cant_tot_entrega;
     public string fecha_envio;
     public string fecha_caducidad;
+    public string fecha_produccion;
     public int num_factura;
     public int num_compra;
 }
