@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using TMPro;
 using Michsky.UI.ModernUIPack;
 using System;
+using UnityEngine.UI;
 using System.Globalization;
 
 public class CRUDClientes : MonoBehaviour
@@ -13,6 +14,9 @@ public class CRUDClientes : MonoBehaviour
     public GameObject success;
     public GameObject dady;
     public GameObject equipodady;
+
+    public GameObject pTog;
+    public GameObject hTog;
 
     public TMP_InputField id_delete;
 
@@ -49,7 +53,10 @@ public class CRUDClientes : MonoBehaviour
     //**********FALTA*********
     //  
 
-
+    public void BuscarCliente()
+    {
+        StartCoroutine(Buscar());
+    }
     public void Habilitado()
     {
         habilitado = habilitado == 1 ? 0 : 1;
@@ -103,7 +110,91 @@ public class CRUDClientes : MonoBehaviour
         }
 
     }
-    
+    IEnumerator Buscar()
+    {
+        int id;
+        int.TryParse(id_cliente.text.ToString(), out id);
+        Debug.Log(id);
+        WWWForm form = new WWWForm();
+        form.AddField("id_cliente", id); //No repetir porque debe ser único
+        
+        WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DS/consultaclientec.php", form);
+
+        yield return www;
+        Debug.Log(www.text);
+        
+        string json = "";
+        if (www.text[0] == '1')
+        {
+            json = www.text.Substring(1, www.text.Length - 1);
+        }
+
+        List<Cliente> c = JsonConvert.DeserializeObject<List<Cliente>>(json);
+
+        id_cliente.text = c[0].id_cliente.ToString();
+        nombre.text = c[0].nombre.ToString();
+        rfc.text = c[0].rfc.ToString();
+        domicilio.text = c[0].domicilio.ToString();
+        contacto.text = c[0].contacto.ToString();
+
+        if (c[0].habilitado == 1)
+            hTog.GetComponent<Toggle>().isOn=true;
+        else hTog.GetComponent<Toggle>().isOn = false;
+
+
+        if (c[0].personalizado == 1)
+        {
+            pTog.GetComponent<Toggle>().isOn = true;
+            ab_lim_sup.text = c[0].ab_lim_sup.ToString();
+            ab_lim_inf.text = c[0].ab_lim_inf.ToString();
+            dm_lim_sup.text = c[0].dm_lim_sup.ToString();
+            dm_lim_inf.text = c[0].dm_lim_inf.ToString();
+            e_lim_sup.text = c[0].e_lim_sup.ToString();
+            e_lim_inf.text = c[0].e_lim_inf.ToString();
+            fqn_lim_sup.text = c[0].fqn_lim_sup.ToString();
+            fqn_lim_inf.text = c[0].fqn_lim_inf.ToString();
+            gr_lim_sup.text = c[0].gr_lim_sup.ToString();
+            gr_lim_inf.text = c[0].gr_lim_inf.ToString();
+            t_lim_sup.text = c[0].t_lim_sup.ToString();
+            t_lim_inf.text = c[0].t_lim_inf.ToString();
+            ex_lim_sup.text = c[0].ex_lim_sup.ToString();
+            ex_lim_inf.text = c[0].ex_lim_inf.ToString();
+            fh_lim_sup.text = c[0].fh_lim_sup.ToString();
+            fh_lim_inf.text = c[0].fh_lim_inf.ToString();
+            cc_lim_sup.text = c[0].cc_lim_sup.ToString();
+            cc_lim_inf.text = c[0].cc_lim_inf.ToString();
+            ie_lim_sup.text = c[0].ie_lim_sup.ToString();
+            ie_lim_inf.text = c[0].ie_lim_inf.ToString();
+        }
+        else if(c[0].personalizado == 0)
+        {
+            Debug.Log("No personalizado");
+            pTog.GetComponent<Toggle>().isOn = false;
+            ab_lim_sup.text = "";
+            ab_lim_inf.text = "";
+            dm_lim_sup.text = "";
+            dm_lim_inf.text = "";
+            e_lim_sup.text = "";
+            e_lim_inf.text = "";
+            fqn_lim_sup.text = "";
+            fqn_lim_inf.text = "";
+            gr_lim_sup.text = "";
+            gr_lim_inf.text = "";
+            t_lim_sup.text = "";
+            t_lim_inf.text = "";
+            ex_lim_sup.text = "";
+            ex_lim_inf.text = "";
+            fh_lim_sup.text = "";
+            fh_lim_inf.text = "";
+            cc_lim_sup.text = "";
+            cc_lim_inf.text = "";
+            ie_lim_sup.text = "";
+            ie_lim_inf.text = "";
+
+        }
+
+
+    }
     IEnumerator UpdateCliente()
     {
         
@@ -135,6 +226,8 @@ public class CRUDClientes : MonoBehaviour
             int.TryParse(fh_lim_inf.text.ToString(), out fhi);
             int.TryParse(cc_lim_sup.text.ToString(), out ccs);
             int.TryParse(cc_lim_inf.text.ToString(), out cci);
+            int.TryParse(ie_lim_sup.text.ToString(), out ies);
+            int.TryParse(ie_lim_inf.text.ToString(), out iei);
 
         }
         WWWForm form = new WWWForm();
@@ -270,23 +363,25 @@ public class CRUDClientes : MonoBehaviour
         if (personalizado == 1)
         {
             int.TryParse(ab_lim_sup.text.ToString(), out abs);
-            int.TryParse(ab_lim_sup.text.ToString(), out abi);
+            int.TryParse(ab_lim_inf.text.ToString(), out abi);
             int.TryParse(dm_lim_sup.text.ToString(), out dms);
-            int.TryParse(dm_lim_sup.text.ToString(), out dmi);
+            int.TryParse(dm_lim_inf.text.ToString(), out dmi);
             int.TryParse(e_lim_sup.text.ToString(), out es);
-            int.TryParse(e_lim_sup.text.ToString(), out ei);
+            int.TryParse(e_lim_inf.text.ToString(), out ei);
             int.TryParse(gr_lim_sup.text.ToString(), out grs);
-            int.TryParse(gr_lim_sup.text.ToString(), out gri);
+            int.TryParse(gr_lim_inf.text.ToString(), out gri);
             int.TryParse(fqn_lim_sup.text.ToString(), out fqns);
-            int.TryParse(fqn_lim_sup.text.ToString(), out fqni);
+            int.TryParse(fqn_lim_inf.text.ToString(), out fqni);
             int.TryParse(t_lim_sup.text.ToString(), out ts);
-            int.TryParse(t_lim_sup.text.ToString(), out ti);
+            int.TryParse(t_lim_inf.text.ToString(), out ti);
             int.TryParse(ex_lim_sup.text.ToString(), out exs);
-            int.TryParse(ex_lim_sup.text.ToString(), out exi);
+            int.TryParse(ex_lim_inf.text.ToString(), out exi);
             int.TryParse(fh_lim_sup.text.ToString(), out fhs);
-            int.TryParse(fh_lim_sup.text.ToString(), out fhi);
+            int.TryParse(fh_lim_inf.text.ToString(), out fhi);
             int.TryParse(cc_lim_sup.text.ToString(), out ccs);
-            int.TryParse(cc_lim_sup.text.ToString(), out cci);
+            int.TryParse(cc_lim_inf.text.ToString(), out cci); 
+            int.TryParse(ie_lim_sup.text.ToString(), out ies);
+            int.TryParse(ie_lim_inf.text.ToString(), out iei);
 
         }
 

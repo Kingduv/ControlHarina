@@ -36,6 +36,59 @@ public class AnalisisCRUD : MonoBehaviour
     {
         StartCoroutine(ModificarAnalisis());
     }
+    public void BuscarAnalisis()
+    {
+        StartCoroutine(Buscar());
+    }
+    IEnumerator Buscar()
+    {
+        int id;
+        int.TryParse(numeroAnalisis.text.ToString(), out id);
+        
+        Debug.Log(id);
+        WWWForm form = new WWWForm();
+        form.AddField("numero_analisis", id); //No repetir porque debe ser único
+        form.AddField("lote", lote.text.Replace("\u200b", "")); //No repetir porque debe ser único
+
+        WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DS/consultaanalisisc.php", form);
+
+        yield return www;
+        Debug.Log(www.text);
+
+        string json = "";
+        if (www.text[0] == '1')
+        {
+            json = www.text.Substring(1, www.text.Length - 1);
+        }
+
+        List<Analisis> e = JsonConvert.DeserializeObject<List<Analisis>>(www.text);
+
+
+        tenacidad.text = e[0].tenacidad.ToString();
+        extensibilidad.text = e[0].extensibilidad.ToString();
+        absorcion_agua.text = e[0].absorcion_agua.ToString();
+        fqn.text = e[0].fqn.ToString();
+        grado_reblandecimineto.text = e[0].grado_reblandecimineto.ToString();
+        fuerza_harina.text = e[0].fuerza_harina.ToString();
+        configuracion.text = e[0].configuracion.ToString();
+        indice_elasticidad.text = e[0].indice_elasticidad.ToString();
+        desarrollo_masa.text = e[0].desarrollo_masa.ToString();
+        estabilidad.text = e[0].estabilidad.ToString();
+        /*
+        form.AddField("absorcion_agua", datos[0]);
+        form.AddField("desarrollo_masa", datos[1]);
+        form.AddField("estabilidad", datos[2]);
+        form.AddField("grado_reblandecimineto", datos[3]);
+        form.AddField("fqn", datos[4]);
+        form.AddField("tenacidad", datos[5]);
+        form.AddField("extensibilidad", datos[6]);
+        form.AddField("fuerza_harina", datos[7]);
+        form.AddField("configuracion", datos[8]);
+        form.AddField("indice_elasticidad", datos[9]);
+
+         **/
+
+    }
     IEnumerator ModificarAnalisis() //Que datos recibe?
     {
 

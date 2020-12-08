@@ -42,6 +42,10 @@ public class CRUDEquipos : MonoBehaviour
     {
         StartCoroutine(MostrarEquipos());
     }
+    public void BuscarEquipo()
+    {
+        StartCoroutine(Buscar());
+    }
     public void InsertarEquipos()
     {
         StartCoroutine(InsertarEquipo());
@@ -56,6 +60,40 @@ public class CRUDEquipos : MonoBehaviour
         StartCoroutine(Eliminar());
 
     }
+    
+    IEnumerator Buscar()
+    {
+        int id;
+        int.TryParse(i.text.ToString(), out id);
+        Debug.Log(id);
+        WWWForm form = new WWWForm();
+        form.AddField("id_equipo", id); //No repetir porque debe ser único
+
+        WWW www = new WWW("https://lab.anahuac.mx/~a00289882/DS/consultaequipoc.php", form);
+
+        yield return www;
+
+        string json="";
+        if (www.text[0] == '1')
+        {
+           json= www.text.Substring(1, www.text.Length - 1);
+        }
+        Debug.Log(www.text);
+        List<Equipo> equipo = JsonConvert.DeserializeObject<List<Equipo>>(json);
+        Debug.Log(equipo[0].id_equipo);
+        
+        m.text=equipo[0].marca;
+        mo.text = equipo[0].modelo;
+        s.text = equipo[0].serie;
+        p.text = equipo[0].proveedor_equipo;
+        date.text = equipo[0].fecha_adquisicion;
+        ga.text = equipo[0].garantia;
+        dl.text = equipo[0].descripcion_larga;
+        dc.text = equipo[0].descripcion_corta;
+        ub.text = equipo[0].ubicacion;
+        ma.text = equipo[0].mantenimiento;
+        res.text = equipo[0].responsable.ToString();
+}
     IEnumerator Eliminar()
     {
         int id;
@@ -117,6 +155,7 @@ public class CRUDEquipos : MonoBehaviour
         yield return www;
 
         Debug.Log(www.text);
+
         if (www.text[0] == '0')
         {
             Debug.Log("Equipo Modificado Exitosamente.");
